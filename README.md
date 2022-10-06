@@ -1,10 +1,10 @@
-## Exercise
+# Recipe Maker
 
 You want to make the process of cooking during a week faster. So you write a program that based on the items that are available at home and the ingredients in some recipes that you want to cook, can print a shopping list. The shopping list includes all the ingredients and their amount that you need to buy for cooking. Your program should be called ShoppingList.
 
 The program should first read the available ingredients at home and one or more recipes provided as input text. The list of available ingredients at home will start with a line AVAILABLE. Each recipe also starts with a line starting with RECIPE. An example of such input is as follows.
 
-# AVAILABLE
+## AVAILABLE
 
 ## 100 g potato
 
@@ -16,7 +16,7 @@ The program should first read the available ingredients at home and one or more 
 
 ## 2 kg oil
 
-# RECIPE 1
+## RECIPE 1
 
 ## 1 kg fish
 
