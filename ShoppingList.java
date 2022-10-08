@@ -7,32 +7,33 @@ public class ShoppingList {
   public static void main(String[] args) {
     try (Scanner input = new Scanner(System.in)) {
       Map<String, Integer> availableIngredients = new TreeMap<>(); // object input of the a.ingredients
-      Map<String, Integer> ingredientsForRecipe = new TreeMap<>(); // object input of the a.ingredients    /// compare boths.
+      Map<String, Integer> ingredientsForRecipe = new TreeMap<>(); // object input of the a.ingredients /// compare
+                                                                   // boths.
       Map<String, Integer> listShoppingSpace = new TreeMap<>();
 
-      int c = 0;
+      int nContador = 0;
       while (input.hasNextLine()) {
         input.nextLine();
         while (input.hasNextInt()) {
-          int amount = input.nextInt();
-          String unit = input.next();
+          int iAmount = input.nextInt();
+          String sUnit = input.next();
 
-          String ingredients = input.next();
+          String sIngredients = input.next();
 
-          if (unit.equals("kg")) {
-            amount = amount * 1000; // change to gr
+          if (sUnit.equals("kg")) {
+            iAmount = iAmount * 1000; // change to gr
           }
-          if (c == 0) {
-            availableIngredients.put(ingredients, amount);
+          if (nContador == 0) {
+            availableIngredients.put(sIngredients, iAmount);
           }
-          if (c > 0) {
-            if (ingredientsForRecipe.containsKey(ingredients)) {
-              int amountIngredientes =
-                amount + ingredientsForRecipe.get(ingredients);
-              ingredientsForRecipe.put(ingredients, amountIngredientes);
-            } else ingredientsForRecipe.put(ingredients, amount);
+          if (nContador > 0) {
+            if (ingredientsForRecipe.containsKey(sIngredients)) {
+              int amountIngredientes = iAmount + ingredientsForRecipe.get(sIngredients);
+              ingredientsForRecipe.put(sIngredients, amountIngredientes);
+            } else
+              ingredientsForRecipe.put(sIngredients, iAmount);
           }
-          c++;
+          nContador++;
         }
       }
 
@@ -40,25 +41,27 @@ public class ShoppingList {
 
       System.out.println("Shopping List:");
 
-      for (String ingredientShoopingList : ingredientsForRecipe.keySet()) { // ingredients in the shopping list should be ingredients for the recipe -
+      for (String ingredientShoopingList : ingredientsForRecipe.keySet()) { // ingredients in the shopping list should
+                                                                            // be ingredients for the recipe -
         if (availableIngredients.containsKey(ingredientShoopingList)) {
-          int amount =
-            availableIngredients.get(ingredientShoopingList) -
-            availableIngredients.get(ingredientShoopingList);
+          int iAmount = availableIngredients.get(ingredientShoopingList) -
+              availableIngredients.get(ingredientShoopingList);
 
-          if (amount > 0) {
-            listShoppingSpace.put(ingredientShoopingList, amount);
-            System.out.println(amount + " g " + ingredientShoopingList);
+          if (iAmount > 0) {
+            listShoppingSpace.put(ingredientShoopingList, iAmount);
+            System.out.println(iAmount + " g " + ingredientShoopingList);
           }
 
-          if (!availableIngredients.containsKey(ingredientShoopingList));
-          int amount1 = availableIngredients.get(ingredientShoopingList);
+          if (!availableIngredients.containsKey(ingredientShoopingList))
+            ;
+          int iAmountA = availableIngredients.get(ingredientShoopingList);
 
-          listShoppingSpace.put(ingredientShoopingList, amount1);
+          listShoppingSpace.put(ingredientShoopingList, iAmountA);
 
-          System.out.println(amount + " g " + ingredientShoopingList);
+          System.out.println(iAmount + " g " + ingredientShoopingList);
         }
       }
     }
+
   }
 }
