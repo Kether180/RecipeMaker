@@ -16,21 +16,23 @@ public class ShoppingList {
         while (input.hasNextLine()) {
             input.nextLine();
             while (input.hasNextInt()) {
-                int amount = input.nextInt();
-                String unit = input.next();
-                String ingredients = input.next();
-                if (unit.equals("kg")) {
-                    amount = amount * 1000;
+                int iAmount = input.nextInt();
+                String sUnit = input.next();
+                String sIngredients = input.next();
+                if (sUnit.equals("kg")) {
+                    iAmount = iAmount * 1000;
                 }
                 if (contador == 0) {
-                    availableIngredients.put(ingredients, amount);
+                    availableIngredients.put(sIngredients, iAmount);
                 }
                 if (contador > 0) {
-                    if (ingredientsForRecipe.containsKey(ingredients)) {
-                        int amountVar = amount + ingredientsForRecipe.get(ingredients);
-                        ingredientsForRecipe.put(ingredients, amountVar);
+
+                    if (ingredientsForRecipe.containsKey(sIngredients)) {
+
+                        int iAmountA = iAmount + ingredientsForRecipe.get(sIngredients);
+                        ingredientsForRecipe.put(sIngredients, iAmountA);
                     } else {
-                        ingredientsForRecipe.put(ingredients, amount);
+                        ingredientsForRecipe.put(sIngredients, iAmount);
                     }
                 }
             }
@@ -43,17 +45,17 @@ public class ShoppingList {
         for (String ingredientsForShoppingList : ingredientsForRecipe.keySet()) {
 
             if (availableIngredients.containsKey(ingredientsForShoppingList)) {
-                int amount = availableIngredients.get(ingredientsForShoppingList)
+                int iAmount = ingredientsForRecipe.get(ingredientsForShoppingList)
                         - availableIngredients.get(ingredientsForShoppingList);
-                if (amount > 0) {
-                    listShoppingSpace.put(ingredientsForShoppingList, amount);
-                    System.out.println(amount + " g " + ingredientsForShoppingList);
+                if (iAmount > 0) {
+                    listShoppingSpace.put(ingredientsForShoppingList, iAmount);
+                    System.out.println(iAmount + " g " + ingredientsForShoppingList);
                 }
             }
             if (!availableIngredients.containsKey(ingredientsForShoppingList)) {
-                int amount = ingredientsForRecipe.get(ingredientsForShoppingList);
-                listShoppingSpace.put(ingredientsForShoppingList, amount);
-                System.out.println(amount + " g " + ingredientsForRecipe);
+                int iAmount = ingredientsForRecipe.get(ingredientsForShoppingList);
+                listShoppingSpace.put(ingredientsForShoppingList, iAmount);
+                System.out.println(iAmount + " g " + ingredientsForShoppingList);
             }
 
         }

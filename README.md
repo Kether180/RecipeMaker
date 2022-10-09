@@ -58,10 +58,10 @@ RECIPE 1
 
 # Output
 
-# Shopping List:
+Shopping List:
 
-## 300 g cheese
+300 g cheese
 
-## 400 g cucumber
+400 g cucumber
 
-## 500 g tomato
+500 g tomato
